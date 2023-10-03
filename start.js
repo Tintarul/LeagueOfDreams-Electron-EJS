@@ -121,7 +121,7 @@ function gitPull(){
     runCommand('git init');
     let repoUrl = "https://github.com/Tintarul/LeagueOfDreams-Electron-EJS.git";
     runCommand(`git remote add origin ${repoUrl}`);
-    runCommand('git pull origin main');
+    runCommand('git pull origin master');
     setTimeout(function (){
         updating = false;
         runServer();
