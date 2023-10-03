@@ -103,13 +103,6 @@
                <option class="dropboxValue" value="Crystal Scar">Crystal Scar</option>
             </select> 
             <br>
-            <label class="dropboxLabel" for="gamemode">Choose gamemode:</label>
-            <select class="dropbox" name="gamemode" id="gamemode">
-               <option class="dropboxValue" value="CLASSIC">CLASSIC</option>
-               <option class="dropboxValue" value="URF">URF</option>
-               <option class="dropboxValue" value="ARAM">ARAM</option>
-            </select> 
-            <br>
             <label class="containerChkBox">Cheats
                <input id="cheats" name="cheats" type="checkbox" >
                <span class="checkmarkChkBox"></span>
@@ -130,6 +123,14 @@
                <input id="adminForAll" name="adminForAll" type="checkbox">
                <span class="checkmarkChkBox"></span>
             </label>
+            <br>
+            <label class="dropboxLabel" for="gamemode">Choose gamemode:</label>
+            <select class="dropbox" name="gamemode" id="gamemode">
+               <option class="dropboxValue" value="CLASSIC">CLASSIC</option>
+               <option class="dropboxValue" value="URF">URF</option>
+               <option class="dropboxValue" value="ARAM">ARAM</option>
+            </select> 
+            <br><br><br>
             <button onclick="createLobby()" class="button-play">Start Lobby</button>
             <br>
          </div>
@@ -139,11 +140,13 @@
    
 	<div class="ProfileContent" id="ProfileContent" style="display: none">
 		<center style="color: white">
-		<br><br><br><br>
+      <br><br><br><br><br>
+      <h1>Your player profile</h1>
+      <hr>
 		<img class="img-circle img-responsive img-center" src="<%= user.picture %>" alt="">
-		<br	/>
 		<p>Name: <%=user.displayname %></p>
 		<p>Friends: <%=user.friends.length %></p>
+      <p>Games played: <%=user.history.length %></p>
 		<center>
 	</div>
 
@@ -191,7 +194,11 @@
 	
 	<div class="NewsContent" id="NewsContent" style="display: none">
 		<center style="color: white">
+      <br><br><br><br><br>
 		<h1>News panel</h1>
+      <hr>
+      <b>Welcome to version 1.0.4</b>
+      <p style="padding: 20px">Fixed some bugs, Added ARAM, Added Cooldown to Aatrox Passive and Added stun to Warwick's R, Game modes like URF, Added Riven,Added Swain, Ryze's R is dealing AoE damage now and has Spellvamp, Morgana Added, Nunu R added,Added Gangplank,Fixed the Fiora R animation, Taric E stuns now and also increased the Melee champs' ranges.</p>
 		<center>
 	</div>
 		<div class="BiggerCardcontainer" id="BiggerCardcontainer">

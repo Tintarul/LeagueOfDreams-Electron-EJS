@@ -393,6 +393,14 @@ module.exports = function(livesession) {
 										console.log("Emitting to sockets[" + i + "]");
 										sockets[i].emit("loadGame", token, id, gameServerPort);
 										console.log("loadGame with port" + gameServerPort);
+										
+										let query = {$push: {"history": result}};
+
+										User.findOneAndUpdate({ _id: socket.id }, query, function(userUpdated){
+											console.dir(userUpdated);
+										}).catch(function (error) {
+											console.dir(error);
+										});	
 									}
 								}
 							}

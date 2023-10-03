@@ -24,11 +24,9 @@ var UserSchema = new mongoose.Schema({
 		content: {type: String, default:"Alert"},
 		title: {type: String, default: "Account"}
 	}],
-	history: [{
-		date: { type: Number, default: 0},
-		map: { type: String, ref: '5v5 default'},
-		status: { type: String, default: "In progress"}
-	}]
+	history: {type: Array, default: [{
+		status: "nothing"
+	}]}
 });
 
 UserSchema.pre('save', async function(next){
