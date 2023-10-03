@@ -1,0 +1,322 @@
+.champ-select {
+	.steps {
+		background-color: #0f1e2c;
+		padding: 12px;
+		border: 1px solid #003143;
+		box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+		color: #4c8ab0;
+		padding: 6px;
+		width: 220px;
+		text-align: center;
+		margin: 0 auto;
+		border-radius: 3px;
+
+		span {
+			color: #6a98b6;
+			font-weight: bold;
+		}
+
+		.current {
+			color: #caac7c;
+		}
+
+		i {
+			color: #264b64;
+			margin: 0 13px;
+		}
+	}
+}
+
+.tab-controllers {
+	margin-top: 9px;
+	display: flex;
+
+	.message {
+		color: white;
+		margin: 0;
+		display: inline-block;
+		font-weight: normal;
+		margin-left: 5px;
+		margin-top: 10px;
+		min-width: 200px;
+
+		span {
+			color: #d3ab6b;
+			text-transform: uppercase;
+			// font-weight: bold;
+		}
+	}
+
+	.tab-element {
+		font-family: Lato;
+		font-size: 14px;
+		font-weight: bold;
+		cursor: pointer;
+		padding: 12px;
+		border: 1px solid #006083;
+		color: #4c8ab0;
+		display: inline-block;
+		min-width: 120px;
+		background-image: -webkit-linear-gradient( 90deg, #09161d 0%, rgb(18,36,48) 100%);
+
+		&.current  {
+			background-color: #122430;
+			background-image: none;
+			position: relative;
+			z-index: 10;
+			border-bottom: #122430;
+			padding: 12px;
+		}
+
+		&.current span {
+			color: #debd88;
+		}
+
+		&:not(.current) {
+			padding-bottom: 11px;
+		}
+
+		&:hover {
+			color: white;
+		}
+
+	}
+
+	.search-champs {
+		border-radius: 3px;
+		background-color: rgb(27, 53, 70);
+		box-shadow: 0px -1px 0px 0px rgba(0, 97, 132, 0.75),inset 1px 1.732px 13px 0px rgba(0, 0, 0, 0.75);
+		border: none;
+		padding: 8px 13px;
+		margin-right: 5px;
+		margin: auto;
+		width: 85%;
+		color: white;
+		font-size: 12px;
+		color: white;
+
+		&:focus,
+		&:active {
+			outline: none;
+			box-shadow: 0px -1px 0px 0px rgba(0, 97, 132, 0.75),inset 1px 1.732px 13px 0px rgba(0, 0, 0, 0.75), 0 0 5px #447ca4;
+		}
+	}
+
+	.tabs {
+		width: 100%;
+		text-align: center;
+		margin: auto;
+	}
+
+}
+
+.champions-grid {
+	padding: 8px;
+	padding-bottom: 0;
+	border: 1px solid #006083;
+	color: #4c8ab0;
+	background-color: #11232f;
+	margin-top: -1px;
+	height: 305px;
+	position: relative;
+	background-image: -webkit-linear-gradient( 90deg, rgb(8,19,26) 0%, rgb(18,36,48) 100%);
+
+	.champions-grid-overflow {
+		overflow-y: scroll;
+		height: 250px;
+	}
+	
+
+	.champ-icon {
+		background-color: rgb(13, 28, 37);
+		box-shadow: inset 0px 0px 5.32px 1.68px rgba(0, 0, 0, 0.75);
+		width: 64px;
+		height: 64px;
+		margin-right: -1px;
+		margin-bottom: 6px;
+		display: inline-block;
+		cursor: pointer;
+		position: relative;
+
+		opacity: 0;
+		transform: scale(0);
+		transition: 0.2s;
+
+		&.hidden {
+			display: none;
+		}
+
+		&.loaded:active {
+			transform: scale(0.8);
+		}
+
+		&.loaded {
+			opacity: 1;
+			transform: scale(1);
+			transition: 0.2s;
+		}
+
+		&:hover {
+			transform: scale(1.1);
+		}
+
+		&.inactive {
+			cursor: normal;
+
+			&:active {
+				transform: scale(1);
+			}
+
+			&:hover:after {
+				opacity: 0;
+			}
+
+			img {
+				opacity: 0.2;
+			}
+		}
+
+		&.selected {
+			box-shadow: 0 0 1px 1px #237e9c
+		}
+	}
+
+	.filters {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		padding: 7px;
+		border-top: 1px solid #162833;
+
+		span {
+			font-size: 12px;
+			color: #3f5e73;
+		}
+
+		.tag {
+			color: #6791c2;
+			font-size: 11px;
+			cursor: pointer;
+			padding: 4px 10px;
+			border-radius: 5px;
+			padding: 5px;
+
+			&:before {
+				content: '\f1db';
+				font-family: FontAwesome;
+				display: inline-block;
+				margin-right: 7px;
+				width: 10px;
+			}
+
+			&:hover {
+				color: white;
+			}
+
+			&.selected {
+				color: white;
+				background-image: -webkit-linear-gradient( 90deg, #204057 0%, #1b374b 100%);
+
+				&:before {
+					content: '\f00c';
+				}
+
+				&:hover {
+					background-image: -webkit-linear-gradient( 90deg, lighten(#204057, 5%) 0%, lighten(#1b374b, 5%) 100%);
+				}
+			}
+
+			.fa {
+				color: #6b96c8;
+				margin: 0 3px;
+			}
+		}
+
+		.select-field {
+			width: 140px;
+			float: right;
+			padding: 4px 10px;
+			display: inline-block;
+
+			span {
+				color: #6791c2;
+				font-size: 11px;
+			}
+		}
+	}
+}
+
+.controllers-wrapper {
+	display: flex;
+
+	.controller-panel {
+		margin-top: 7px;
+		padding: 10px;
+		padding-bottom: 0;
+		border: 1px solid #006083;
+		color: #4c8ab0;
+		background-color: #08131A;
+	}
+
+	.masteries {
+		width: 220px;
+		height: 81px;
+		margin-right: 7px;
+	}
+
+	.spells {
+		margin-right: 7px;
+	}
+
+	.panel-title {
+		margin: 0;
+		color: #cca263;
+		font-size: 10px;
+		margin-bottom: 4px;
+		margin-top: -3px;
+	}
+
+	.spell-icon {
+		display: inline-block;
+
+		&:first-child {
+			margin-left: 5px;
+		}
+
+		&:hover {
+			opacity: 0.7;
+			cursor: pointer;
+		}
+	}
+
+	.play {
+		width: 249px;
+		text-align: center;
+		padding: 13px;
+	}
+
+	.button-play {
+		width: 153px;
+		height: 50px;
+		background: url(../img/button-play.png) no-repeat;
+		border: none;
+		transition: 0.3s;
+
+		&:active,
+		&:focus {
+			outline: none;
+		}
+
+		&:hover {
+			// transform: scale(1.05);
+			transition: 0.1s;
+			box-shadow: 0 0 20px #bb441a;
+		}
+
+		&:active {
+			transform: scale(0.9);
+			transition: 0.1s;
+		}
+	}
+}

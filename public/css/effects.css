@@ -1,0 +1,84 @@
+@keyframes rainbow {
+    from {background-position: -100vh 0}
+    to {background-position: 100vh 0}
+} 
+
+@-moz-keyframes rainbow {
+    from {background-position: -100vh 0}
+    to {background-position: 100vh 0}
+}
+@-webkit-keyframes rainbow {
+    from {background-position: -100vh 0}
+    to {background-position: 100vh 0}
+}
+@-ms-keyframes rainbow {
+    from {background-position: -100vh 0}
+    to {background-position: 100vh 0}
+}
+@-o-keyframes rainbow {
+    from {background-position: -100vh 0}
+    to {background-position: 100vh 0}
+}
+
+.rainbow-nav {
+	border-bottom: double 0.3em transparent;
+	background: linear-gradient(white, white), 
+	repeating-linear-gradient(to right, rgb(82, 82, 209),rgb(235, 50, 235), rgb(82, 82, 209));
+	background-origin: border-box;
+	background-clip: content-box, border-box;
+	animation-name: rainbow;
+	animation-duration:  3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+.rainbow {
+	border: 4px double transparent;
+	border-radius: 0px;
+	overflow: auto;
+	background: linear-gradient(white, white), 
+	repeating-linear-gradient(to right, rgb(82, 82, 209),rgb(235, 50, 235), rgb(82, 82, 209));
+	background-origin: border-box;
+	background-clip: content-box, border-box;
+	animation-name: rainbow;
+	animation-duration:  3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+.btn-buy {
+	border-radius: 0;
+	width: 100%;
+	background: linear-gradient(90deg, rgba(54,107,233,1) 0%, rgba(57,0,255,1) 69%, rgba(83,0,255,1) 100%);
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.btn-buy:hover {
+	border-radius: 0;
+	background: linear-gradient(90deg, rgba(90,135,242,1) 0%, rgba(112,93,180,1) 69%, rgba(88,61,142,1) 100%);
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.btn-buy:focus {
+	border-radius: 0;
+	background: linear-gradient(90deg, rgba(90,135,242,1) 0%, rgba(112,93,180,1) 69%, rgba(88,61,142,1) 100%);
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}

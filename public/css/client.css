@@ -1,0 +1,851 @@
+html{
+    background-image: url("/img?file=bg") ;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d5c72;
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: #053340;
+    border-radius: 10%;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #032e3a; 
+  }
+
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.footer {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-image: url('/img?file=footer');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    -webkit-box-shadow: 0px 0px 50px 0px #000000; 
+    box-shadow: 0px 0px 50px 0px #000000;
+    border-top: 1px solid black;
+}
+
+.footer button {
+    margin-right: 5px;
+    background-color: #002F39;
+    border-radius: 10%;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    min-width: 60px;
+    min-height: 20px;
+    -webkit-box-shadow: 0px 0px 50px 0px #000000; 
+    box-shadow: 0px 0px 50px 0px #000000;
+    cursor: pointer;
+}
+
+.footer button:hover{
+    background-color: #022229;
+}
+
+.friendlist{
+    position: absolute;
+    bottom: 39.44px;
+	max-height: 60%;
+    overflow: auto;
+    right: 0;
+    z-index: 20;
+}
+
+.lobbyCard {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid white;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  backdrop-filter: blur(10px);
+}
+
+.selectedSlot {
+  border: 2px solid rgba(0, 174, 255, 0.945);
+  border-radius: 2px;
+}
+
+.lobbyCard:hover{
+  /* Scale up with animation */
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.topbar{
+  position: absolute;
+  background-image: url('/img?file=footer');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  border-bottom: 1px solid white;
+  top: 0;
+  width: 100%;
+  height: 10%;
+  
+  padding-top: 10px;
+  z-index: 2;
+}
+
+.topbar .play {
+  display: inline-block;
+  margin-top: 30px;
+  left: 0;
+}
+
+.topbar .content {
+  margin-right: 0;
+  display: inline-block;
+}
+
+.menu {
+	top: 30px;
+	position: absolute;
+	z-index: 1;
+	right: 10px;
+  width: calc(100% - 30px);
+}
+
+.ProfileContent{
+	background-color: rgba(0, 47, 57, 0.1);
+	backdrop-filter: blur(16px);
+	z-index: 1;
+	position: absolute;
+	outline: solid 1px rgb(0, 47, 57);
+	margin-left: 20%;
+	height: 70%;
+	width: 60%;
+}
+
+.ServersContent{
+	background-color: rgba(0, 47, 57, 0.1);
+	backdrop-filter: blur(16px);
+	z-index: 1;
+	position: absolute;
+	outline: solid 1px rgb(0, 47, 57);
+	margin-left: 0;
+	height: 100%;
+	width: 100%;
+  overflow: hidden;
+}
+
+.LobbyContent {
+	background-color: rgba(0, 47, 57, 0.1);
+	backdrop-filter: blur(16px);
+	z-index: 1;
+	position: absolute;
+	outline: solid 1px rgb(0, 47, 57);
+	margin-left: 0;
+	height: 90%;
+	width: 100%;
+}
+
+.serversList {
+  position: relative;
+  overflow: auto;
+  width: auto;
+  height: auto;
+
+}
+
+.server {
+  min-height: 15%;
+  margin-top: 20px;
+  border-bottom: 2px solid white;
+  
+  border-left: solid 1px rgb(0, 47, 57);
+  border-right: solid 1px rgb(0, 47, 57);
+  border-top: solid 1px rgb(0, 47, 57);
+  border-bottom: solid 1px rgb(0, 47, 57);
+  background-color: rgba(0, 47, 57, 0.1);
+  backdrop-filter: blur(16px);
+  z-index: 1;
+  position: relative;
+  outline: solid 1px rgb(0, 47, 57);
+  border-bottom-style: calc(var(--border-style) * var(--border-width));
+}
+
+.serverNameContent{
+  margin-left: 50px;
+  height: inherit;
+  float: left;
+  width: auto;
+  min-width: 10%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
+}
+
+.serverName{
+  text-align: top;
+}
+
+.serverDescriptionContent{
+  height: inherit;
+  float: left;
+  width: auto;
+  min-width: 10%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 10px;
+}
+
+.serverDescription{
+  text-align: top;
+}
+
+.serverIpContent{
+  height: inherit;
+  float: left;
+  width: auto;
+  min-width: 10%;
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
+}
+
+.serverIp{
+  text-align: top;
+}
+
+.serverButtonContent {
+  float: right;
+  margin-right: 10px;
+  
+  width: auto;
+}
+
+.serverButton {
+  position: relative;
+  outline: none;
+  border: none;
+  padding: 20px;
+  padding-left: 25px;
+  padding-right: 30px;
+  letter-spacing: 3px;
+  text-decoration: double;
+  margin-top: 10px;
+  background-color: #002F39;
+  color: white;
+}
+
+.defaultButton {
+  background-color: #002F39;
+  color: white;
+  position: relative;
+  outline: none;
+  border: none;
+  padding: 20px;
+  padding-left: 25px;
+  padding-right: 30px;
+  letter-spacing: 3px;
+  text-decoration: double;
+}
+
+.defaultButton:hover {
+  background-color: #022229;
+  color: white;
+  cursor: pointer;
+}
+
+.serverButton:hover{
+  cursor: pointer;
+  background-color: #004251;
+}
+
+.submitServerPage {
+  position: fixed;
+  z-index: 2;
+  bottom: 30px;
+  right: 30px;
+  background-color: #002F39;
+  letter-spacing: 3px;
+  color: white;
+  padding: 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 50px 0px #000000c0;
+  box-shadow: 0px 0px 50px 0px #000000be;
+  transition: 400ms ease-in-out;
+}
+
+.submitServerPage:hover{
+  -webkit-box-shadow: 0px 0px 50px 0px #ffffffc0;
+  box-shadow: 0px 0px 50px 0px #ffffffbe;
+}
+
+.LobbyPage {
+	background-color: rgba(0, 47, 57, 0.1);
+	backdrop-filter: blur(16px);
+	z-index: 0;
+	position: relative;
+	margin-left: 0%;
+	height: 100%;
+	width: 100%;
+}
+
+.lobbyButton {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 20px;
+  background-color: rgb(255, 157, 0);
+  color: white;
+}
+
+.champSelect {
+  margin-left: 20px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  letter-spacing: 2px;
+}
+
+.lobbyButton:hover {
+  cursor:pointer;
+  background-color: rgb(173, 107, 0);
+}
+
+.LobbyPage .containerLob {
+  width: 100%;
+	margin-top: 90px;
+	overflow: auto;
+	min-width: 50px;
+	min-height: 50%;
+  position: absolute;
+}
+
+.LobbyPage .team {
+	background-color: rgba(0, 47, 57, 0.1);
+	backdrop-filter: blur(16px);
+	overflow: auto;
+	max-width: 45%;
+	width: 45%;
+	margin: 20px;
+	max-height: 70%;
+	height: 70%;
+}
+
+.team::-webkit-scrollbar {
+  display: none;
+}
+
+.team .moveTo {
+	height: auto;
+	width: 40px;
+	background-color: orange;
+	margin-right: 20px;
+	outline: none;
+	border: none;
+	box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+	cursor: pointer;
+	padding: 1%;
+	text-align: center;
+}
+
+.team .kick {
+	height: auto;
+	width: 40px;
+	background-color: orange;
+	float: right;
+	margin-right: 20px;
+	outline: none;
+	border: none;
+	box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+	cursor: pointer;
+	padding: 1%;
+	text-align: center;
+}
+
+.dropboxLabel {
+  color: white;
+  font-size: 25px;
+  margin: 10px;
+}
+
+.dropbox {
+  padding: 10px;
+  outline: none;
+  border: none;
+}
+
+.containerChkBox {
+  margin: 10px;
+  color: white;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.containerChkBox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmarkChkBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.containerChkBox:hover input ~ .checkmarkChkBox {
+  background-color: #ccc;
+}
+
+.containerChkBox input:checked ~ .checkmarkChkBox {
+  background-color: #2196F3;
+}
+
+.checkmarkChkBox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.containerChkBox input:checked ~ .checkmarkChkBox:after {
+  display: block;
+}
+
+.containerChkBox .checkmarkChkBox:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.LobbyPage p {
+	background-color: rgba(0, 47, 57, 0.1);
+	backdrop-filter: blur(16px);
+	color: white;
+  padding: 10px;
+	font-size: 30px;
+	overflow: auto;
+	width: 100%;
+	height: auto;
+}
+
+.NewsContent {
+	background-color: rgba(0, 47, 57, 0.1);
+	backdrop-filter: blur(16px);
+	z-index: 1;
+	position: absolute;
+	outline: solid 1px rgb(0, 47, 57);
+	margin-left: 20%;
+	height: 70%;
+	width: 60%;
+}
+
+.card {
+	
+  display: flex;
+  display: inline-block;
+  height: 280px;
+  width: 200px;
+  background-color: #002039;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+/*   margin-left: -50px; */
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.card:not(:first-child) {
+    margin-left: -10px;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+}
+
+.card:hover ~ .card {
+  position: relative;
+  left: 50px;
+  transition: 0.4s ease-out;
+}
+
+.BiggerCardcontainer {
+  z-index: 0;
+  position: absolute;
+  max-height: 100%;
+  top: 13%;
+  display: flex;
+  overflow: auto !important;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.LobbyCreatorContainer {
+	margin-top: 10%;
+	width: 100%;
+}
+
+.mapNotSelected {
+  width: 350px; 
+  border: 1px solid white; 
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.selectedMap {
+  border: 3px solid rgba(255, 166, 0, 0.76) !important;
+}
+
+.LobbyCreatorContainer .input{
+	letter-spacing: 2px;
+	margin: 10px;
+	width: 90%;
+	padding: 10px;
+	outline: none;
+	text-decoration: none;
+	border: none;
+}
+
+.LobbyCreatorContainer .submit{
+	letter-spacing: 1px;
+	float: right;
+	padding: 10px;
+	outline: none;
+	border: none;
+}
+
+.menubtn {
+    color: white;
+    letter-spacing: 5px;
+    background-color: transparent;
+	font-size: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menubtn:hover {
+    color: gray;
+}
+
+.playbtn{
+    margin-left: 50px;
+    padding: 10px;
+    outline: none;
+    cursor: pointer;
+    width: 180px;
+    color: white;
+    font-size: 30px;
+    letter-spacing: 5px;
+    display: inline-block;
+    overflow: auto hidden;
+    border-bottom-right-radius:100px;
+    border-top-left-radius:100px;
+    border: none;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+.playbtn:hover {
+	background: linear-gradient(-45deg, #B65A3D, #952651, #1A789A, #188D72);
+	color: #B5B5B5;
+	background-size: 400% 400%;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.friendlist input{
+    width: 80%;
+    height: 30px;
+    padding: 5px;
+    outline: none;
+}
+
+.friendlist button {
+    width: 60px;
+    height: 30px;
+    background-color: #002F39;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.friendlist button:hover {
+    background-color: #011e24;
+}
+
+.friends {
+    box-shadow: 10px 10px 39px -7px rgba(0,0,0,0.23) inset;
+    min-height: 366px;
+    max-height: 80%;
+    border-left: 2px solid #214349;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    overflow: auto;
+    overflow-x: hidden;
+    background: #0c2e35;
+    list-style-type: none;
+    background-color: #0c2e35;
+}
+
+.friend {
+color: white;
+  width: 300px;
+  height: 60px;
+  background: #0c2e35;
+  border-bottom: 1px solid #063641;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.friend img {
+  width: 45px;
+  height: 45px;
+  border-radius: 30px;
+  border: 2px solid #AAA;
+  object-fit: cover;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.friend .name {
+  font-size: 18px;
+}
+
+.friend.selected {
+  background: #034552;
+  color: white;
+}
+
+.friend.selected img {
+  border-color: white;
+}
+
+.friend:not(.selected):hover {
+  background: #071f24;
+}
+
+.middle {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+.bar {
+  width: 10px;
+  height: 120px;
+  background: #fff;
+  display: inline-block;
+  transform-origin: bottom center;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  /*   box-shadow:5px 10px 20px inset rgba(255,23,25.2); */
+  animation: loader 1.2s linear infinite;
+}
+.bar1 {
+  animation-delay: 0.1s;
+}
+.bar2 {
+  animation-delay: 0.2s;
+}
+.bar3 {
+  animation-delay: 0.3s;
+}
+.bar4 {
+  animation-delay: 0.4s;
+}
+.bar5 {
+  animation-delay: 0.5s;
+}
+.bar6 {
+  animation-delay: 0.6s;
+}
+.bar7 {
+  animation-delay: 0.7s;
+}
+.bar8 {
+  animation-delay: 0.8s;
+}
+
+@keyframes loader {
+  0% {
+    transform: scaleX(0.1);
+    background: transparent;
+  }
+  50% {
+    transform: scaleX(1);
+    background: yellowgreen;
+  }
+  100% {
+    transform: scaleX(0.1);
+    background: transparent;
+  }
+}
+
+
+.inGame {
+  background-image: url("/file?file=secondbg.png");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.inGame .logo {
+  background-image: url('/file?file=icon.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  margin-top: 60px;
+}
+
+.inGame .table {
+  margin-top: 100px;
+}
+
+.inGame h1 {
+  color: white;
+  text-shadow: 1px 1px 4px #000000;
+}
+
+.inGame .LobbyMessage {
+  background-color: rgb(138, 255, 127);
+  padding: 5px;
+  margin-left: 150px;
+  margin-right: 150px;
+  letter-spacing: 2px;
+  color: rgb(0, 31, 6);
+  border: 1px solid rgb(13, 255, 0);
+  border-radius: 50px;
+}
+
+.inGame .LobbyError {
+  background-color: rgb(255, 127, 127);
+  padding: 5px;
+  margin-left: 150px;
+  margin-right: 150px;
+  letter-spacing: 2px;
+  color: rgb(32, 0, 0);
+  border: 1px solid red;
+  border-radius: 50px;
+}
+
+.inGame .button-20 {
+  appearance: button;
+  background-color: #4D4AE8;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
+  border: 1px solid #4D4AE8;
+  border-radius: 1rem;
+  box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset,rgba(46, 54, 80, 0.075) 0 1px 1px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  padding: .5rem 1rem;
+  text-align: center;
+  text-transform: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.inGame .button-20:focus:not(:focus-visible),
+.inGame .button-20:focus {
+  outline: 0;
+}
+
+.inGame .button-20:hover {
+  background-color: #3733E5;
+  border-color: #3733E5;
+}
+
+.inGame .button-20:focus {
+  background-color: #413FC5;
+  border-color: #3E3BBA;
+  box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset, rgba(46, 54, 80, 0.075) 0 1px 1px, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
+}
+
+.inGame .button-20:active {
+  background-color: #3E3BBA;
+  background-image: none;
+  border-color: #3A38AE;
+  box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset;
+}
+
+.inGame .button-20:active:focus {
+  box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
+}
+
+.inGame .button-20:disabled {
+  background-image: none;
+  box-shadow: none;
+  opacity: .65;
+  pointer-events: none;
+}

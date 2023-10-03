@@ -1,0 +1,33 @@
+html, body {
+}
+
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: arial; // Lato
+	background: #222;
+	background-size: cover;
+}
+
+.clearfix {
+	&:after {
+		display: block;
+		content: ' ';
+		clear: both;
+	}
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+}
+
+.preloader.loaded {
+	opacity: 0 !important;
+	pointer-events: none;
+	transition: 0.5s;
+}

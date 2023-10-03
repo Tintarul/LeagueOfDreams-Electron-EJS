@@ -1,0 +1,49 @@
+.team-blue {
+	.champion-panel {
+		transform: translateX(100%);
+	}
+	
+}
+
+.team-heading {
+	clear: both;
+	display: block;
+	height: 30px;
+
+	h2 {
+		margin: 0;
+		font-weight: bold;
+		color: white;
+		font-size: 16px;
+		float: left;
+		margin-top: 5px;
+		position: relative;
+		z-index: 10;
+	}
+
+	.team-red & h2:after {
+		background: url(../img/team-bg-red.png) no-repeat center center;
+		position: absolute;
+		width: 143px;
+		height: 60px;
+		top: -20px;
+		left: -27px;
+		z-index: -1;
+	}
+
+	.seconds {
+		border: solid  1px rgb(29, 69, 84);
+		border-radius: 3px;
+		background-image: -webkit-linear-gradient( 90deg, rgb(10,25,29) 0%, rgb(8,19,26) 100%);
+		color: white;
+		font-weight: bold;
+		float: right;
+		padding: 8px 14px;
+		line-height: 0.7em;
+		box-shadow: 0 0 20px #1d4554;
+	}
+}
+
+.team-champions {
+	margin-top: 12px;
+}

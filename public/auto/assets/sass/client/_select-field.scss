@@ -1,0 +1,71 @@
+.select-field {
+	border-radius: 5px;
+	background-image: -webkit-linear-gradient( 90deg, #204057 0%, #1b374b 100%);
+	font-size: 11px;
+	color: white;
+	padding: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	position: relative;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&:hover {
+		background-image: -webkit-linear-gradient( 90deg, lighten(#204057, 5%) 0%, lighten(#1b374b, 5%) 100%);
+
+		&.opened ul { background: #264D68; }
+	}
+
+	.dropdown-arrow {
+		float: right;
+		border-left: 1px solid #274c66;
+		color: #6b96c8;
+		padding-left: 5px;
+		cursor: pointer;
+	}
+
+	.edit {
+		color: #ba945b;
+		float: right;
+		margin-right: 5px;
+		cursor: pointer;
+		position: relative;
+		z-index: 10;
+	}
+
+	&.opened {
+		border-radius: 0;
+		z-index: 11;
+
+		ul {
+			display: block;
+			background: #1E3D54;
+			list-style: none;
+			margin: 0;
+			padding: 8px;
+			color: #657f92;
+			width: 100%;
+
+			li {
+				margin-bottom: 5px;
+			}
+
+			li:hover {
+				color: white;
+			}
+
+			li:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	ul {
+		display: none;
+		position: absolute;
+		left: 0;
+		top: 17px;
+	}
+}

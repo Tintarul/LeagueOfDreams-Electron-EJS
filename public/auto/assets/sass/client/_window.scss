@@ -1,0 +1,89 @@
+body {
+	background: url(../img/background-img-base.jpg)
+}
+
+.client-error {
+	height: 100vh; width: 100vw;
+	position: fixed; top: 0; left: 0;
+	background: rgba(black,0.8);
+	z-index: 999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	opacity: 0;
+	pointer-events: none;
+	transition: 1s;
+
+	&.is-visible {
+		opacity: 1;
+		pointer-events: auto;
+		transition: 1s;
+	}
+
+	.error-wrapper {
+		background: black;
+		border-radius: 10px;
+		border: 2px solid red;
+		padding: 40px;
+	}
+}
+
+// The main window
+.client-window {
+	width: 1280px;
+	height: 800px;
+	display: block;
+	margin: 50px auto 0;
+	background: url(../img/background-img.jpg) no-repeat;
+	position: relative;
+	padding: 30px;
+	user-select: none;
+	overflow: hidden;
+	box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	transition: 0.2s;
+	transform: translateY(-50px);
+
+	&.visible {
+		opacity: 1;
+		transition: 0.5s;
+		transform: translateY(0);
+	}
+}
+
+.top-bar {
+	height: 25px;
+	background: url(../img/top-bar.png) no-repeat top center;
+	margin: -30px -30px 0;
+}
+
+.footer-controlls {
+	height: 68px;
+	background: url(../img/bottom-buttons.png) no-repeat top center;
+	margin: 0 -30px -30px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+::selection {
+	background: black;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #104a5f;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}

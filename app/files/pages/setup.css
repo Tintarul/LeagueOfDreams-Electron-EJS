@@ -1,0 +1,106 @@
+.title-bar {
+	-webkit-app-region: drag;
+	background-color: rgba(0, 0, 35, 0.6);
+	position: fixed;
+	top: 0;
+	margin-bottom: 10px;
+	width: 100%;
+	overflow: auto;
+	z-index: 12;
+	border-bottom: 1px solid;
+	border-image-source: linear-gradient(90deg, rgba(182,105,0,1) 0%, rgba(255,241,0,1) 50%, rgba(182,105,0,1) 100%);
+	border-image-slice: 2;
+	vertical-align: baseline;
+	z-index: 100;
+}
+
+.nav{
+	margin: 0;
+	padding: 0 !important;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+.navbtn {
+	border: 1px solid black;
+	border-radius: 50%;
+	width: 20px;
+
+	height: 20px;
+	font-size: 15px;
+	text-align: center;
+	outline:none;
+	margin: 5px;
+	vertical-align: center;
+}
+
+.infoText {
+	display: none;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+  
+	/* Position the tooltip */
+	right: 0;
+	margin:5px;
+	margin-top: 35px;
+	position: absolute;
+	z-index: 99999999;
+}
+
+.title-bar-btns {
+	-webkit-app-region: no-drag;
+	float: right;
+}
+
+.minbtn {
+	background-color: #B9B900;
+	color: white;
+}
+
+.minbtn:hover{
+	background-color: #8A8A00;
+}
+
+.maxbtn {
+	background-color: #10A800;
+	color: white;
+}
+
+.maxbtn:hover{
+	background-color: #0D8900;
+}
+
+.closebtn{
+	background-color: #9E0000;
+	color: white;
+}
+
+.refreshbtn{
+	background-color: rgb(0, 126, 253);
+	color: white;
+	margin-right: 20px;
+}
+
+.refreshbtn:hover{
+	background-color: rgb(0, 86, 171);
+}
+
+.settingsbtn{
+	background-color: rgb(106, 106, 106);
+	color: white;
+	margin-right: 20px;
+}
+
+.settingsbtn:hover{
+	background-color: rgb(68, 68, 68);
+}
+
+.closebtn:hover{
+	background-color: #7F0000;
+}

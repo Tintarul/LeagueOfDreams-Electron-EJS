@@ -1,0 +1,40 @@
+<% layout('loginLayout') -%>
+
+    <div class="maindiv">
+        <div class="logo"></div>
+        <div class="logindiv">
+           <div id="login-body">
+
+           <div class="login_top">
+              <h1>Account Register</h1>
+           </div>
+           <% if (errors.length > 0) { %>
+            <div class="alertGreen" id="alertGreen">
+              <%= errors %>
+                   <button type="button" onclick="closeAlert()" class="close" data-dismmiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <% } %>
+           <hr>
+           <form class="login_middle" id="registerform" method="POST" action="/signup">
+              <div id="login" action="/signup">
+                 <h1>Username</h1>
+                 <input type="text" name="username" id="username">
+                 <h1>Display Name</h1>
+                 <input type="Text" name="displayname" id="displayname"><br>
+				<br>
+              </div>
+            </form>
+            <button style="margin-right: 30px;" onclick="LoadingRegister()" id="loginbtn" class="logbutton">Register</button>
+            <a style="float: left; margin-left: 30px;" href="/"><button id="loginbtn" class="logbutton">Back</button></a>
+           </div>
+           <div id="loading" class="loading">
+            <div class="lds-lod"><div></div><div></div><div></div></div>
+          </div>
+        </div>
+     </div>
+
+  <video src="/file?file=loginscreen.mp4" autoplay loop playsinline>
+  </video>
+ <script src="/js?file=index"></script>

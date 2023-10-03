@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lol Client</title>
+
+	<style type="text/css">
+		.preloader {
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			top: 0; right: 0; bottom: 0; left: 0;
+			background: black;
+			z-index: 999;
+			transition: 0.5s;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="preloader"></div>
+
+	<section class="client-error">
+		<div class="error-wrapper">
+			<p>You have not picked a champion. Returning to lobby...</p>
+		</div><!-- .error-wrapper -->
+	</section><!-- .error -->
+
+	<section id="client-window" class="client-window">
+		<div class="top-bar">
+			<!-- will be empty :( -->
+		</div>
+
+		<section class="main-panels">
+
+			<div class="left team-red">
+				<heading class="team-heading clearfix">
+					<h2 class='your-team clearfix'>Your team</h2>
+					<span class="seconds clearfix">15</span>
+				</heading>
+
+				<div class="team-champions">
+					<div class="champion-panel">
+						<div class="champ-icon"></div>
+						<div class="content-wrap">
+							<h3 class="player-name picked">FullMetalBr0</h3>
+							<small class="champ-slogan">Hecarim, the Shadow of War</small>
+
+							<div class="spell-icon">
+								<img src="assets/img/spell-flash.png">
+							</div>
+							<div class="spell-icon">
+								<img src="assets/img/spell-heal.png">
+							</div>
+						</div>
+					</div><!-- /champ-panel -->
+
+					<div class="champion-panel">
+						<div class="champ-icon"></div>
+						<div class="content-wrap">
+							<h3 class="player-name">XavorTM</h3>
+							<small class="champ-slogan">Hecarim, the Shadow of War</small>
+
+							<div class="spell-icon">
+								<img src="assets/img/spell-flash.png">
+							</div>
+							<div class="spell-icon">
+								<img src="assets/img/spell-heal.png">
+							</div>
+						</div>
+					</div><!-- /champ-panel -->
+
+					<div class="champion-panel">
+						<div class="champ-icon"></div>
+						<div class="content-wrap">
+							<h3 class="player-name">notaRapper</h3>
+							<small class="champ-slogan">Hecarim, the Shadow of War</small>
+
+							<div class="spell-icon">
+								<img src="assets/img/spell-flash.png">
+							</div>
+							<div class="spell-icon">
+								<img src="assets/img/spell-heal.png">
+							</div>
+						</div>
+					</div><!-- /champ-panel -->
+
+					<div class="champion-panel">
+						<div class="champ-icon"></div>
+						<div class="content-wrap">
+							<h3 class="player-name">Extenz</h3>
+							<small class="champ-slogan">Hecarim, the Shadow of War</small>
+
+							<div class="spell-icon">
+								<img src="assets/img/spell-flash.png">
+							</div>
+							<div class="spell-icon">
+								<img src="assets/img/spell-heal.png">
+							</div>
+						</div>
+					</div><!-- /champ-panel -->
+
+					<div class="champion-panel">
+						<div class="champ-icon"></div>
+						<div class="content-wrap">
+							<h3 class="player-name">Mangak8</h3>
+							<small class="champ-slogan">Hecarim, the Shadow of War</small>
+
+							<div class="spell-icon">
+								<img src="assets/img/spell-flash.png">
+							</div>
+							<div class="spell-icon">
+								<img src="assets/img/spell-heal.png">
+							</div>
+						</div>
+					</div><!-- /champ-panel -->
+				</div>
+			</div><!-- /team-red -->
+
+
+
+
+
+			<div class="center champ-select">
+				<div class="steps">
+					<span>Ban</span>
+					<i class="fa fa-angle-right"></i>
+					<span class='current'>Pick</span>
+					<i class="fa fa-angle-right"></i>
+					<span>Free</span>
+				</div>
+
+				<div class="select-wrapper">
+					<header class="tab-controllers">
+						<h4 class="message"><span>Lock in</span> your choice</h4>
+
+						<div class="tabs">
+							<div class="tab-element current" data-tabController="champions">
+								<span>Champions</span>
+							</div>
+
+							<div class="tab-element" data-tabController="skins">
+								<span>Skins</span>
+							</div>
+						</div>
+
+						<input type="text" class='search-champs' placeholder="Search champion">
+					</header>
+
+					<div class="champions-grid">
+						<div class="champions-grid-overflow">
+							<div class="champ-icon selected" data-tag='Most played champion'><img src="assets/img/champ-hecarim.png"></div>
+							<div class="champ-icon" data-tag='Most played champion'><img src="assets/img/champ-jinx.png"></div>
+							<div class="champ-icon" data-tag='Most played champion'><img src="assets/img/champ-graves.png"></div>
+							<div class="champ-icon" data-tag='Most played champion'><img src="assets/img/champ-jayce.png"></div>
+							<div class="champ-icon" data-tag='Recently used'><img src="assets/img/champ-diana.png"></div>
+							<div class="champ-icon" data-tag='Most played champion'><img src="assets/img/champ-heimerdinger.png"></div>
+							<div class="champ-icon" data-tag='Recently used'><img src="assets/img/champ-trundle.png"></div>
+							<div class="champ-icon" data-tag='Recently used'><img src="assets/img/champ-tryndamere.png"></div>
+							<div class="champ-icon" data-tag='Recently used'><img src="assets/img/champ-fid.png"></div>
+							<div class="champ-icon" data-tag='Recently used'><img src="assets/img/champ-morgana.png"></div>
+							<div class="champ-icon" data-tag='Recently used'><img src="assets/img/champ-malphite.png"></div>
+							<div class="champ-icon" data-tag='Recently used'><img src="assets/img/champ-lucian.png"></div>
+							<div class="champ-icon" data-tag='Most played champion'><img src="assets/img/champ-nidalee.png"></div>
+							<div class="champ-icon" data-tag='Recently used'><img src="assets/img/champ-janna.png"></div>
+							<div class="champ-icon" data-tag='Most played champion'><img src="assets/img/champ-irelia.png"></div>
+							<div class="champ-icon" data-tag='Most played champion'><img src="assets/img/champ-karma.png"></div>
+							<div class="champ-icon" data-tag='Recently used'><img src="assets/img/champ-missfortune.png"></div>
+							<div class="champ-icon" data-tag='Most played champion'><img src="assets/img/champ-karthus.png"></div>
+							<div class="champ-icon" data-tag='Most played champion'><img src="assets/img/champ-nidalee.png"></div>
+						</div>
+
+						<footer class="filters">
+							<span>Sort by:</span>
+							<span class="tag selected">All champions</span>
+							<span class="tag">Most played champion</span>
+							<span class="tag">Recently used</span>
+
+							<div class="select-field">
+								<span class="text">My champion list</span>
+								<span class="dropdown-arrow"><i class='fa fa-angle-down'></i></span>
+
+								<ul>
+									<li>My first list</li>
+									<li>OP Champs</li>
+									<li>SATAN teeto</li>
+								</ul>
+							</div>
+						</footer>
+					</div>
+
+					<div class="controllers-wrapper">
+						<div class="controller-panel masteries">
+							<h5 class="panel-title">Runes & Masteries</h5>
+							<div class="select-field">
+								<span class="text">Attack damage only and #YOLO</span>
+								<span class="dropdown-arrow"><i class='fa fa-angle-down'></i></span>
+
+								<ul>
+									<li>Tanky and stuff</li>
+									<li>Super secred stuff</li>
+								</ul>
+							</div>
+
+							<div class="select-field">
+								<span class="text">Mastery page 1</span>
+								<span class="dropdown-arrow"><i class='fa fa-angle-down'></i></span>
+								<span class="edit"><i class='fa fa-pencil'></i></span>
+
+								<ul>
+									<li>Mastery page 2</li>
+									<li>Mastery page 3</li>
+								</ul>
+							</div>
+						</div><!-- /masteries -->
+
+						<div class="controller-panel spells">
+							<h5 class="panel-title">Select spells</h5>
+							<div class="spell-icon">
+								<img src="assets/img/spell-flash-big.png">
+							</div>
+							<div class="spell-icon">
+								<img src="assets/img/spell-heal-big.png">
+							</div>
+						</div>
+
+						<div class="controller-panel spells">
+							<h5 class="panel-title">Ward Skin</h5>
+							<div class="spell-icon">
+								<img src="assets/img/icon-wardskin.png">
+							</div>
+						</div>
+
+						<div class="controller-panel play">
+							<button class='button-play'></button>
+						</div>
+					</div><!-- controllers-wrapper -->
+				</div>
+			</div><!-- /champ-select -->
+
+
+
+
+			<div class="right team-blue">
+				<heading class="team-heading clearfix">
+					<h2 class='your-team clearfix'>Enemy team</h2>
+					<span class="seconds clearfix">15</span>
+				</heading>
+
+				<div class="team-champions">
+					<div class="champion-panel">
+						<div class="champ-icon">
+						</div>
+						<div class="content-wrap">
+							<h3 class="player-name">Summoner 1</h3>
+
+							<div class="spell-icon"></div>
+							<div class="spell-icon"></div>
+						</div>
+					</div><!-- /champ-panel -->
+
+					<div class="champion-panel">
+						<div class="champ-icon"></div>
+						<div class="content-wrap">
+							<h3 class="player-name">Summoner 2</h3>
+
+							<div class="spell-icon"></div>
+							<div class="spell-icon"></div>
+						</div>
+					</div><!-- /champ-panel -->
+
+					<div class="champion-panel">
+						<div class="champ-icon"></div>
+						<div class="content-wrap">
+							<h3 class="player-name">Summoner 3</h3>
+
+							<div class="spell-icon"></div>
+							<div class="spell-icon"></div>
+						</div>
+					</div><!-- /champ-panel -->
+
+					<div class="champion-panel">
+						<div class="champ-icon"></div>
+						<div class="content-wrap">
+							<h3 class="player-name">Summoner 4</h3>
+
+							<div class="spell-icon"></div>
+							<div class="spell-icon"></div>
+						</div>
+					</div><!-- /champ-panel -->
+
+					<div class="champion-panel">
+						<div class="champ-icon"></div>
+						<div class="content-wrap">
+							<h3 class="player-name">Summoner 5</h3>
+
+							<div class="spell-icon"></div>
+							<div class="spell-icon"></div>
+						</div>
+					</div><!-- /champ-panel -->
+				</div>
+			</div><!-- /blue -->
+		</section><!-- /main-panels -->
+
+		<section class="section-comments">
+			<div class="left panel-ban">
+				<header class="heading">
+					<h4><i class='fa fa-close'></i> Banned Champions</h4>
+				</header>
+
+				<div class="banned-champ">
+					<span class="champ-name">Corki</span>
+					<img class='banned-champ' src="assets/img/ban-demo.png">
+				</div>
+				<div class="banned-champ">
+					<span class="champ-name">Nocturne</span>
+					<img class='banned-champ' src="assets/img/ban-noc.png">
+				</div>
+				<div class="banned-champ">
+					<span class="champ-name">Jax</span>
+					<img class='banned-champ' src="assets/img/ban-jax.png">
+				</div>
+			</div>
+
+			<div class="center panel-chat">
+				<header class="heading">
+					<h4 class="float-left">Team chat</h4>
+					<span class="float-right">Playing: <strong>Ranked game</strong></span>
+				</header>
+
+				<div class="chat-messages">
+					<span class='chat-msg'><strong class='user'>TheScouser:</strong> mid (pref) but can jung too</span>
+				</div>
+
+				<form class="input-area">
+					<input class="chatbox-input" type="text">
+					<input type="button" value="Submit" class='chat-submit'>
+				</form>
+			</div>
+
+			<div class="right panel-ban">
+				<header class="heading">
+					<h4><i class='fa fa-close'></i> Banned Champions</h4>
+				</header>
+
+				<div class="banned-champ">
+					<span class="champ-name">Corki</span>
+					<img class='banned-champ' src="assets/img/ban-demo.png">
+				</div>
+				<div class="banned-champ">
+					<span class="champ-name">Jax</span>
+					<img class='banned-champ' src="assets/img/ban-jax.png">
+				</div>
+				<div class="banned-champ">
+					<span class="champ-name">Nocturne</span>
+					<img class='banned-champ' src="assets/img/ban-noc.png">
+				</div>
+			</div>
+		</section><!-- /section-comments -->
+
+		<section class="footer-controlls"></section>
+	</section><!-- /end client-window -->
+
+	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/master.css">
+
+	<script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+	<script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+</html>

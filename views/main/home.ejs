@@ -1,0 +1,244 @@
+<%- layout ('layout') -%>
+   <div class="topbar">
+      <div class="menu">
+         <button class="button-play" onclick="Play();">PLAY</button>
+         <button class="menubtn" onclick="Profile();">Profile</button>
+         <button class="menubtn" onclick="News();">News</button>
+         <button class="menubtn" id="logout-btn" onclick="LogOut();">Logout</button>
+      </div>
+   </div>
+<div id="inClient" style="display: block;">
+
+   <div class="friendlist" id="friendlist" style="display: none;">
+      <ul class="friends">
+         <% if(user['friends']) {
+            for(var object in user['friends']){ %>
+               
+            <li class='friend'>
+               <div class='name' style="padding: 10px">
+                 <%- user['friends'][object]['name']%>
+               </div>
+             </li>
+         <%}} else {%>
+            <h1 style="color: white; text-align: center;">Friend list is empty.</h1>
+         <%}%>
+      </ul>
+      <input type="text" placeholder="Find someone"><button><i class="fas fa-search"></i></button>
+   </div>
+
+   <div class="friendlist" id="messagelist" style="display: none;">
+
+      <ul class="friends">
+         <% if(user['chats']) {
+            for(var object in user['chats']){%>
+               
+            <li class='friend'>
+               <div class='name' style="padding: 10px">
+                 <%- user['chats'][object]['name']%>
+               </div>
+             </li>
+         <%}} else {%>
+            <h1 style="color: white; text-align: center;">Message list is empty.</h1>
+         <%}%>
+      </ul>
+   </div>
+
+   <div class="friendlist" id="alertlist" style="display: none;">
+      <ul class="friends">
+         <% if(user['alerts']) {
+            for(var object in user['alerts']){%>
+               
+            <li class='friend'>
+               <div class='name' style="padding: 10px">
+                 <%= user['alerts'][object]['title']%>
+               </div>
+             </li>
+         <%}
+			} else {%>
+            <h1 style="color: white; text-align: center;">Alert list is empty.</h1>
+         <%}%>
+      </ul>
+   </div>
+   
+   <div class="LobbyContent" id="LobbyContent" style="display: none">
+		<div class="LobbyCreatorContainer">
+         <script>
+            function selectMap(map, element){
+               document.getElementById("map").value = map;
+               let allSelected = document.querySelectorAll(".selectedMap");
+               for(let i = 0; i < allSelected.length; i++){
+                  allSelected[i].classList.remove("selectedMap");
+               }
+               element.classList.add("selectedMap");
+            }
+            document.addEventListener("DOMContentLoaded", function(){
+               document.getElementById("map").addEventListener("change", function(){
+                  let allSelected = document.querySelectorAll(".selectedMap");
+                  for(let i = 0; i < allSelected.length; i++){
+                     allSelected[i].classList.remove("selectedMap");
+                  }
+                  let map = document.getElementById("map").value;
+                  document.getElementById(map + "Map").classList.add("selectedMap");
+               })
+            })
+         </script>
+         <div style="width: 55%; float:left; margin-left: 5%; height: 80%;">
+            <img src="/newmap.jpg" id="New SRMap" class="mapNotSelected selectedMap" onclick="selectMap('New SR', this)">
+            <img src="/oldmap.jpg" id="Old SRMap" class="mapNotSelected" onclick="selectMap('Old SR', this)">
+            <img src="/3v3.jpg" id="Old 3v3Map" class="mapNotSelected" onclick="selectMap('Old 3v3', this)">
+            <img src="/aram.jpg" id="ARAMMap" class="mapNotSelected" onclick="selectMap('ARAM', this)">
+            <img src="/scar.jpg" id="Crystal ScarMap" class="mapNotSelected" onclick="selectMap('Crystal Scar', this)">
+         </div>
+         <div style="width: 40%; float:right; border-left: 1px solid white; height: 80%; padding: 20px">
+            <input type="text" class="input" id="createLobbyname" placeholder="Lobby Name">
+            <br>
+            <input type="text" class="input" id="createLobbypassword" placeholder="Lobby Password" hidden>
+            <br>
+            <label class="dropboxLabel" for="map">Choose map:</label>
+            <select class="dropbox" name="map" id="map">
+               <option class="dropboxValue" value="New SR">New SR</option>
+               <option class="dropboxValue" value="Old SR">Old SR</option>
+               <option class="dropboxValue" value="Old 3v3">Old 3v3</option>
+               <option class="dropboxValue" value="ARAM">ARAM</option>
+               <option class="dropboxValue" value="Crystal Scar">Crystal Scar</option>
+            </select> 
+            <br>
+            <label class="dropboxLabel" for="gamemode">Choose gamemode:</label>
+            <select class="dropbox" name="gamemode" id="gamemode">
+               <option class="dropboxValue" value="CLASSIC">CLASSIC</option>
+               <option class="dropboxValue" value="URF">URF</option>
+               <option class="dropboxValue" value="ARAM">ARAM</option>
+            </select> 
+            <br>
+            <label class="containerChkBox">Cheats
+               <input id="cheats" name="cheats" type="checkbox" >
+               <span class="checkmarkChkBox"></span>
+            </label>
+            <label class="containerChkBox">Mana cost
+               <input id="mana" name="mana" type="checkbox" checked="checked">
+               <span class="checkmarkChkBox"></span>
+            </label> 
+            <label class="containerChkBox">Cooldown
+               <input id="cooldown" name="cooldown" type="checkbox" checked="checked">
+               <span class="checkmarkChkBox"></span>
+            </label>
+            <label class="containerChkBox">Minions
+               <input id="minions" name="minions" type="checkbox" checked="checked">
+               <span class="checkmarkChkBox"></span>
+            </label>
+            <label class="containerChkBox">Lobby admin for all players
+               <input id="adminForAll" name="adminForAll" type="checkbox">
+               <span class="checkmarkChkBox"></span>
+            </label>
+            <button onclick="createLobby()" class="button-play">Start Lobby</button>
+            <br>
+         </div>
+         </div>
+			
+      </div>
+   
+	<div class="ProfileContent" id="ProfileContent" style="display: none">
+		<center style="color: white">
+		<br><br><br><br>
+		<img class="img-circle img-responsive img-center" src="<%= user.picture %>" alt="">
+		<br	/>
+		<p>Name: <%=user.displayname %></p>
+		<p>Friends: <%=user.friends.length %></p>
+		<center>
+	</div>
+
+   <div class="ServersContent" id="ServersContent" style="display: none">
+		<center style="color: white">
+		<br><br><br><br>
+		<div class="serversList" id="serversList">
+         <button class="submitServerPage" onclick="submitServerPage()">Submit your own server</button>
+         <% for(var i = 0; i < servers.length; i++) {%>
+            <div class="server">
+               <div class="serverNameContent">
+                  <h1 class="serverName"><%- servers[i].Name %></h1>
+               </div>
+               <div class="serverDescriptionContent">
+                  <p class="serverDescription"><%- servers[i].Motd %></p>
+               </div>
+               <div class="serverIpContent">
+                  <p class="serverIp"><%- servers[i].IP %></p>
+               </div>
+               <div class="serverButtonContent">
+                  <button id="ConnectServer" class="serverButton" value="<%- servers[i].IP %>" >Connect >></button>
+               </div>
+            </div>
+         <% } %>
+      </div>
+      <div class="submitServer" id="submitPage" style="display:none">
+         <h1>Submit your own server</h1>
+         <div id="message" style="display: none;"></div>
+         <div class="LobbyCreatorContainer" style="margin-top: 10px;">
+         
+            <input type="text" class="input" id="ServerName_submit" value="" placeholder="Server Name">
+            <br>
+            <input type="text" class="input" id="ServerDescription_submit" value="" placeholder="Server description" >
+            <br>
+            <input type="text" class="input" id="ServerIP_submit" value="" placeholder="Server IP without port or '/' slashes" >
+            
+            <br>
+         </div>
+         <button class="defaultButton" onclick="submitServerPage()">Go Back</button>
+         <button onclick="submitServer()" class="defaultButton">Submit Server</button>
+         
+      </div>
+		<center>
+	</div>
+	
+	<div class="NewsContent" id="NewsContent" style="display: none">
+		<center style="color: white">
+		<h1>News panel</h1>
+		<center>
+	</div>
+		<div class="BiggerCardcontainer" id="BiggerCardcontainer">
+		</div>
+ 
+   <div class="LobbyPage" id="LobbyPage" style="display:none;">
+      <div class="LobbyLoading" id="LobbyLoading" style="display:block">
+         <div class="middle">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+            <div class="bar bar5"></div>
+            <div class="bar bar6"></div>
+            <div class="bar bar7"></div>
+            <div class="bar bar8"></div>
+          </div>
+      </div>
+      <input id="tiggerForStartingGame" value="1" type="text" hidden>
+      <input id="tiggerForAbortingGame" value="1" type="text" hidden>
+		<div class="containerLob" id="containerLob" style="display:none">
+         <%- include('../partials/champSelect') %>
+		</div> 
+   </div>
+
+   <script src="/js?file=main"></script>
+      <div class="footer">
+        <button onclick="ShowFriendList();"><i class="fas fa-user-friends"></i></button>
+        <button onclick="ShowMessages();"><i class="fas fa-comments"></i></button>
+        <button onclick="ShowAlerts();"><i class="fas fa-exclamation"></i></button>
+      </div>
+</div>
+
+<div id="inGame" class="inGame" style="display:none">
+   <center>
+      <br><br><br><br>
+      <div class="table">
+         <h1 id="LobbyMessage" class="LobbyMessage">You game is running... Good luck!</h1>
+      </div>
+      
+      <button class="button-20" role="button" onclick="backToClient()">Leave game</button>
+      <br>
+      <button class="button-20" role="button" onclick="reconnect()">Reconnect game</button>
+      <div class="logo"></div>
+  </center>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js?file=socket"></script>
+<script> login("<%= user._id %>");</script>

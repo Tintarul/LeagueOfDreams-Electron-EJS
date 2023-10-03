@@ -1,0 +1,35 @@
+.main-panels {
+	display: flex;
+	margin-top: 25px;
+
+	%panel-general {
+		&:after {
+			clear: both;
+			content: ' ';
+		}
+	}
+
+	.team-red {
+		@extend %panel-general;
+		margin: auto;
+		width: 256px;
+	}
+
+	.champ-select {
+		@extend %panel-general;
+		width: 100%;
+		margin: 0 5px;
+		width: 698px;
+	}
+
+	.team-blue {
+		@extend %panel-general;
+		margin: auto;
+		width: 256px;
+		margin-top: 0;
+
+		.player-name {
+			margin-bottom: 21px;
+		}
+	}
+}

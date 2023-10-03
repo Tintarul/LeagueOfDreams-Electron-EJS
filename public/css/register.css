@@ -1,0 +1,21 @@
+.formRegister {
+	background-color: white;
+	width: 20%;
+	height: 100%;
+}
+
+.formRegister button {
+	border: 1px solid black;
+	color: black;
+}
+
+/* floatRight and floatLeft should be side by side */
+
+
+.floatLeft {
+
+}
+
+.floatRight {
+	display: none;
+}

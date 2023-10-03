@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>League of Dreams</title>
+    <!-- Include DaisyUI styles -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@1.10.2/dist/full.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <link href="./setup.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./torrent.js"></script>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        html {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body data-theme="luxury">
+
+    <div class="title-bar" >
+        <div class="title-bar-btns">
+            <button id="min-btn" class="navbtn minbtn"></button>
+            <button id="max-btn" class="navbtn maxbtn"></button>
+            <button id="close-btn" class="navbtn closebtn"></button>
+        </div>
+      </div>
+      <span class="infoText" id="info"></span>
+
+
+<div class="text-center py-4" style="margin-top: 2rem">
+    <img src="./icon.png" class="text-4xl font-bold" style="max-width: 100px; max-height: 100px; display: inline-block;">
+    <div class="text-4xl font-bold" style="display: inline-block;">Settings</div>
+</div>
+<hr class="border-t border-gray-300 my-4">
+
+<div class="text-center">
+    <h3 class="text-xl">Full pack or select existing game</h3>
+</div>
+
+<hr class="border-t border-gray-300 my-4">
+<br>
+
+<div class="flex" style="padding: 1rem">
+    <div class="w-1/2 pr-4">
+        <h2 class="" id="downloadProgress">Install full Game Pack of 10GB</h2>
+        <button class="btn btn-blue my-4" id="setupBtnFull" role="button">Install full game pack</button>
+        <br>
+        <hr>
+        <br>
+        <h2 class="" id="downloadProgressServer">Install full Server Pack of 50 MB</h2>
+        <button class="btn btn-blue my-4" style="display: inline-block; width: 49%;" id="setupServerFull" role="button">Install full server pack</button>
+        <button class="btn btn-blue my-4" style="display: inline-block; width: 49%;" id="startServerBtn" role="button" disabled>Start server</button>
+        <br>
+        <hr>
+        <br>
+        <h2 class="" >Install latest updates</h2>
+        <button class="btn btn-blue my-4" id="updatesBtn" role="button">Install updates</button>
+    </div>
+    
+    <div class="w-1/2 pl-4">
+        <div class="space-y-4">
+            <label for="gamePath" class="">Do you have game already installed? Select .exe file</label>
+            <input name="gamePathDummy" id="gamePathDummy" class="input input-bordered" type="file"/>
+            <input name="gamePath" id="gamePath" type="text" hidden/>
+            <script>
+                let fileInput = document.getElementById("gamePathDummy");
+                let gamePathInput = document.getElementById("gamePath");
+                fileInput.addEventListener("change", function() {
+
+                var selectedFile = fileInput.files[0].path;
+                var pathArray = selectedFile.split("\\");
+
+                pathArray.pop();
+
+                var parentDirectory = pathArray.join("\\");
+                console.log(parentDirectory);
+
+                gamePathInput.value = parentDirectory;
+
+                });
+            </script>
+        </div>
+        <br>
+        <div>
+            <label for="serverIp">Server List</label>
+            <select name="serverIp" id="serverIp" class="select select-bordered w-full max-w-xs">
+                <option value="130.185.118.9">Default</option>
+                <option value="127.0.0.1">Localhost</option>
+                <option id="customOption" value="custom">Custom</option>
+            </select>
+            <br>
+            <label for="customIP">Custom Server: </label>
+            <input id="customIP" type="text" name="customIP" class="input input-bordered w-full max-w-xs" placeholder="Custom IP">
+            <script>
+                document.getElementById("customIP").addEventListener("change", function() {
+                    document.getElementById("customOption").value = document.getElementById("customIP").value;
+                });
+            </script>
+        </div>
+        <br>
+        <button class="btn btn-blue mt-4" id="setupBtn" role="button">Save settings</button>
+    </div>
+</div>
+
+<!-- Include your setup.js script here -->
+<script src="./setup.js"></script>
+</body>
+</html>

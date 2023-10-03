@@ -1,0 +1,53 @@
+<% layout('loginLayout') -%>
+
+    <div class="maindiv">
+        <div class="logo"></div>
+        <div class="logindiv">
+           <div id="login-body">
+
+			<% if (message.length > 0) { %>
+				<div class="alertGreen" id="alertGreen">
+					<%= message %>
+               <button type="button" onclick="closeAlert()" class="close" data-dismmiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			<% } %>
+			<% if (errors.length > 0) { %>
+				<div class="alert" id="alert">
+					<%= errors %>
+               <button type="button" onclick="closeAlert()" class="close" data-dismmiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			<% } %>	
+
+           <div class="login_top">
+              <h1>Account Login</h1>
+           </div>
+           <hr>
+           <form class="login_middle" id="loginform" method="POST" action="/login">
+              <div id="login" action="/login">
+                 <h1>Username</h1>
+                 <input type="text" name="username" id="username">
+				<br><br>
+            <button onclick="LoadingLogin()" id="loginbtn" type="submit" class="logbutton">Log In</button>
+              </div>
+            </form>
+            
+           <hr>
+           <div class="login_bottom ">
+              <a onclick="RedirectRegister(); LoadUser();">
+                 <h1>Dont have an account? <span style="color:#549CFF;">Sign up now</span>!</h1>
+              </a>
+           </div>
+           </div>
+           <div id="loading" class="loading">
+            <div class="lds-lod"><div></div><div></div><div></div></div>
+          </div>
+        </div>
+     </div>
+
+  <video src="/file?file=loginscreen.mp4" autoplay loop playsinline>
+  </video>
+ <script src="/js?file=index"></script>

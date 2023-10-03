@@ -1,0 +1,20 @@
+.Lobby {
+    width: 80%;
+    height: 80%;
+    background-color: lightgray;
+    margin: auto;
+    overflow: auto;
+    display: inline-block;
+}
+
+.teamRed {
+    background-color: red;
+    width: 40%;
+    height: 40%;
+}
+
+.teamBlue {
+    background-color: blue;
+    width: 40%;
+    height: 40%;
+}

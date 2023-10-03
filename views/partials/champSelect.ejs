@@ -1,0 +1,270 @@
+<div style="cursor: auto;">
+	
+
+	
+
+	<section id="" class="client-window ui-draggable ui-draggable-handle visible" style="height: 100%;width: 100%;margin: 0px !important;">
+		
+
+		<section class="main-panels" style="margin: 0;">
+
+			<div class=" team-red">
+				<heading class="team-heading clearfix">
+					<h2 class="your-team clearfix">RED TEAM</h2>
+					<span class="seconds clearfix">0</span>
+				</heading>
+
+				<div class="team-champions" id="teamRed">
+
+					<div class="champion-panel loaded">
+						<div class="champ-icon"><img src="assets/img/champ-hecarim.png"></div>
+						<div class="content-wrap">
+							<h3 class="player-name picked">PlayerTest</h3>
+							<small class="champ-slogan">Hecarim</small>
+
+							<div class="spell-icon">
+								<img src="assets/img/spell-flash.png">
+							</div>
+							<div class="spell-icon">
+								<img src="assets/img/spell-heal.png">
+							</div>
+							
+						</div>
+					</div><!-- /champ-panel -->
+
+				</div>
+			</div><!-- /team-red -->
+
+			<div class="center champ-select">
+				<div class="steps">
+					<span>Ban</span>
+					<i class="fa fa-angle-right"></i>
+					<span class="current">Pick</span>
+					<i class="fa fa-angle-right"></i>
+					<span>Free</span>
+				</div>
+
+				<div class="select-wrapper">
+					<header class="tab-controllers">
+
+						<div class="tabs">
+							<div class="tab-element-button tab-element current" id="championsTabButton" onclick="showSelectionTab('champions')" data-tabcontroller="champions">
+								<span>Champions</span>
+							</div>
+
+							<div class="tab-element-button tab-element" id="mapsTabButton" onclick="showSelectionTab('maps')" data-tabcontroller="skins">
+								<span>Map</span>
+							</div>
+
+							<div class="tab-element-button tab-element" id="skinsTabButton" onclick="showSelectionTab('skins')" data-tabcontroller="skins">
+								<span>Skin</span>
+							</div>
+						</div>
+
+						<input type="text" class="search-champs" placeholder="Search champion" id="search-champs-input">
+					</header>
+
+					<div class="tab-element champions-grid" id="championsTab">
+						<input id="champ" class="champSelect" name="champ" type="text" value="Aatrox" hidden>
+						<div class="champions-grid-overflow"></div>
+
+						<footer class="filters">
+							<span>Sort by:</span>
+							<span class="tag selected disabled" disabled>All champions</span>
+							<span class="tag disabled" disabled>Most played champion</span>
+							<span class="tag disabled" disabled>Recently used</span>
+
+							<div class="select-field">
+								<span class="text">My champion list</span>
+								<span class="dropdown-arrow"><i class="fa fa-angle-down"></i></span>
+
+								<ul>
+									<li>Stared</li>
+									<li>Last played</li>
+									<li>Meta</li>
+								</ul>
+							</div>
+						</footer>
+					</div>
+
+					<div class="tab-element champions-grid hidden" id="mapsTab">
+						<div>
+							<div class="sketchfab-embed-wrapper"> <iframe style="width: 100% !important; height: 100% !important" title="5v5 game map" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/24c2a1468ef44df0925b5c84fc7587c0/embed?autostart=1&ui_theme=dark"> </iframe> </div>
+						</div>
+					</div>
+
+					<div class="tab-element champions-grid hidden" id="skinsTab">
+						<div>
+							<h1>Skins are not implemented yet</h1>
+						</div>
+					</div>
+
+					<script>
+						function showSelectionTab(tab) {
+							let allTabs = document.querySelectorAll('.tab-element');
+							let allButtons = document.querySelectorAll('.tab-element-button');
+							allTabs.forEach(tab => {
+								tab.classList.add('hidden');
+							});
+							allButtons.forEach(button => {
+								button.classList.remove('current');
+							})
+							document.getElementById(tab + 'Tab').classList.remove('hidden');
+							document.getElementById(tab + 'TabButton').classList.add('current');
+						}
+					</script>
+
+					<style>
+						.hidden {
+							display: none;
+						}
+					</style>
+
+					<div class="controllers-wrapper">
+						<div class="controller-panel masteries">
+							<h5 class="panel-title">Runes &amp; Masteries</h5>
+							<div class="select-field">
+								<span class="text">Attack damage only</span>
+								<span class="dropdown-arrow"><i class="fa fa-angle-down"></i></span>
+
+								<ul>
+									<li>Tanky and stuff</li>
+									<li>Super secred stuff</li>
+								</ul>
+							</div>
+
+							<div class="select-field">
+								<span class="text">Mastery page 1</span>
+								<span class="dropdown-arrow"><i class="fa fa-angle-down"></i></span>
+								<span class="edit"><i class="fa fa-pencil"></i></span>
+
+								<ul>
+									<li>Mastery page 2</li>
+									<li>Mastery page 3</li>
+								</ul>
+							</div>
+						</div><!-- /masteries -->
+
+						<div class="controller-panel spells">
+							<center>
+								<h5 class="panel-title">Select slot</h5>
+								<div class="spell-icon selectedSlot" id="slotSpell0" onclick="selectSlot(0)">
+									<img id="slotSpell0Image" src="assets/img/spell-plus.png">
+								</div>
+								<div class="spell-icon" id="slotSpell1" id="slotSpell1" onclick="selectSlot(1)">
+									<img id="slotSpell1Image" src="assets/img/spell-plus.png">
+								</div>
+
+								<h5 class="panel-title">Select spells</h5>
+								<div id="spellSlotsAll">
+									<script>
+										document.addEventListener('DOMContentLoaded', function() {
+											GenerateAllSpells();
+										})
+									</script>
+								</div>
+							</center>
+						</div>
+
+						<div class="controller-panel play" id="LobbyButtons">
+							<button class="button-play"></button>
+						</div>
+					</div><!-- controllers-wrapper -->
+				</div>
+			</div><!-- /champ-select -->
+
+
+
+
+			<div class=" team-blue">
+				<heading class="team-heading clearfix">
+					<h2 class="your-team clearfix">BLUE TEAM</h2>
+					<span class="seconds clearfix">0</span>
+				</heading>
+
+				<div class="team-champions" id="teamBlue">
+
+					<div class="champion-panel loaded">
+						<div class="champ-icon">
+						<img src="assets/img/champ-jinx.png"></div>
+						<div class="content-wrap">
+							<h3 class="player-name">Summoner 1</h3>
+
+							<div class="spell-icon"></div>
+							<div class="spell-icon"></div>
+						</div>
+					</div><!-- /champ-panel -->
+
+
+				</div>
+			</div><!-- /blue -->
+		</section><!-- /main-panels -->
+
+		<section class="section-comments" style="opacity: 0;">
+			<div class="left panel-ban">
+				<header class="heading">
+					<h4><i class="fa fa-close"></i> Banned Champions</h4>
+				</header>
+
+				<div class="banned-champ">
+					<span class="champ-name">Corki</span>
+					<img class="banned-champ" src="assets/img/ban-demo.png">
+				</div>
+				<div class="banned-champ">
+					<span class="champ-name">Nocturne</span>
+					<img class="banned-champ" src="assets/img/ban-noc.png">
+				</div>
+				<div class="banned-champ">
+					<span class="champ-name">Jax</span>
+					<img class="banned-champ" src="assets/img/ban-jax.png">
+				</div>
+			</div>
+
+			<div class="center panel-chat">
+				<header class="heading">
+					<h4 class="float-left">Team chat</h4>
+					<span class="float-right">Playing: <strong>Ranked game</strong></span>
+				</header>
+
+				<div class="chat-messages">
+					<span class="chat-msg"><strong class="user">Test:</strong> Testing msg</span>
+
+				<form class="input-area">
+					<input class="chatbox-input" type="text">
+					<input type="button" value="Submit" class="chat-submit">
+				</form>
+				</div>
+			</div>
+
+			<div class="right panel-ban">
+				<header class="heading">
+					<h4><i class="fa fa-close"></i> Banned Champions</h4>
+				</header>
+
+				<div class="banned-champ">
+					<span class="champ-name">Corki</span>
+					<img class="banned-champ" src="assets/img/ban-demo.png">
+				</div>
+				<div class="banned-champ">
+					<span class="champ-name">Jax</span>
+					<img class="banned-champ" src="assets/img/ban-jax.png">
+				</div>
+				<div class="banned-champ">
+					<span class="champ-name">Nocturne</span>
+					<img class="banned-champ" src="assets/img/ban-noc.png">
+				</div>
+			</div>
+
+		</section><!-- /section-comments -->
+
+		
+	</section><!-- /end client-window -->
+
+
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+	
+
+
+</div>

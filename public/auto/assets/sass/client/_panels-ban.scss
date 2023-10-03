@@ -1,0 +1,175 @@
+.section-comments {
+	width: 100%;
+	margin-top: 15px;
+
+	.heading {
+		margin: 0;
+		margin-bottom: 11px;
+		padding-bottom: 8px;
+		border-bottom: 1px solid #061f2b;
+		font-size: 13px;
+
+		&:after {
+			content: ' ';
+			display: block;
+			overflow: hidden;
+			clear: both;
+		}
+
+		.fa {
+			font-size: 13px;
+			color: rgb(159, 29, 29);
+		}
+	}
+
+	h2, h3, h4 {
+		margin: 0;
+	}
+
+	.panel-ban {
+		background-color: #08131a;
+		padding: 12px;
+		border: 1px solid #006184;
+		width: 256px;
+		color: #4c8ab0;
+		font-weight: bold;
+		float: left;
+
+		.banned-champ {
+			margin-right: 3px;
+			position: relative;
+			width: 30%;
+			display: inline-block;
+			height: 130px;
+
+			.champ-name {
+				position: absolute;
+				left: 0; right: 0;
+				bottom: 15px;
+				display: inline-block;
+				margin: 0 auto;
+				z-index: 10;
+				font-size: 13px;
+				text-align: center;
+			}
+
+			.banned-champ {
+				width: 100%;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.panel-chat {
+		background-color: #08131a;
+		padding: 12px;
+		border: 1px solid #006184;
+		color: #4c8ab0;
+		float: left;
+		margin: 0 5px;
+		width: 698px;
+
+		// @fixme
+		min-height: 140px;
+
+		.float-right {
+			float: right;
+		}
+
+		.float-left {
+			float: left;
+		}
+
+		span {
+			color: #19394d;
+		}
+
+		strong {
+			color: #4c8ab0;
+		}
+
+		.chat-messages {
+			height: 94px;
+			overflow-y: scroll;
+			margin-bottom: 10px;
+		}
+
+		// Chat messages
+		.chat-msg {
+			font-size: 12px;
+			color: white;
+			user-select: text;
+			display: block;
+			margin-bottom: 3px;
+
+			animation-name: showMessageAnimation;
+			animation-duration: 0.2s;
+
+			.user {
+				color: #4d7d8c;
+			}
+
+			.author {
+				color: #ff0;
+			}
+		}
+
+		@keyframes showMessageAnimation {
+			from {
+				opacity: 0;
+				transform: translateX(-100px);
+			}
+			to {
+				opacity: 1;
+				transform : translateX(0);
+			}
+		}
+
+		// Input fields
+		.input-area {
+			font-size: 12px;
+			color: rgb(204, 162, 99);
+			line-height: 2.161;
+			text-shadow: 1.5px 2.598px 5px rgba(0, 0, 0, 0.75);
+			display: flex;
+
+			input[type='button'] {
+				border-radius: 3px;
+				background-image: -webkit-linear-gradient( 90deg, rgb(10,25,29) 0%, rgb(24,53,63) 100%);
+				border: 1px solid rgb(29, 69, 84);
+				padding: 7px 14px;
+				margin-left: 10px;
+
+				&:hover {
+					background-image: -webkit-linear-gradient( 90deg, lighten(rgb(10,25,29), 5%) 0%, lighten(rgb(24,53,63), 5%) 100%);
+				}
+
+				&:active,
+				&:focus {
+					outline: none;
+				}
+			}
+
+			input[type='text'] {
+				border-radius: 3px;
+				background-color: rgb(27, 53, 70);
+				box-shadow: 0px -1px 0px 0px rgba(0, 97, 132, 0.75),inset 1px 1.732px 13px 0px rgba(0, 0, 0, 0.75);
+				border: none;
+				padding: 8px 13px;
+				margin-right: 5px;
+				margin: auto;
+				width: 100%;
+				color: white;
+
+				&:active,
+				&:focus {
+					outline: none;
+
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,69 @@
+.champion-panel {
+	background-color: #08131a;
+	padding: 12px;
+	border: 1px solid #006184;
+	color: #4c8ab0;
+	padding: 6px;
+	display: flex;
+	margin-bottom: 7px;
+	transform: translateX(-100%);
+	transition: 0.1s;
+	opacity: 0;
+
+	&.loaded {
+		transform: translateX(0);
+		transition: 0.4s;
+		opacity: 1;
+	}
+
+	&:after {
+		clear: both;
+		content: ' ';
+		display: block;
+	}
+
+	&.current-player {
+		border-color: #bc961b;
+		// border-image: linear-gradient(to bottom, #bd971b, #92771a) 1 100%;
+		box-shadow: inset 0 0 60px #12202c;
+
+		.player-name {
+			color: #bc961b;
+		}
+	}
+
+	.champ-icon {
+		background-color: rgb(13, 28, 37);
+		box-shadow: inset 0px 0px 5.32px 1.68px rgba(0, 0, 0, 0.75);
+		width: 64px;
+		height: 64px;
+		// float: left;
+		margin-right: 10px;
+	}
+
+	.champ-slogan {
+		font-size: 10px;
+		color: #44738f;
+		margin-bottom: 7px;
+		margin-top: 2px;
+		display: block;
+	}
+
+	.player-name {
+		font-size: 14px;
+		margin: 0;
+
+		&.picked {
+			color: white;
+		}
+	}
+
+	.spell-icon {
+		background-color: #181d2a;
+		width: 27px;
+		height: 26px;
+		border: 1px solid #142b3a;
+		display: inline-block;
+		margin-right: 2px;
+	}
+}
