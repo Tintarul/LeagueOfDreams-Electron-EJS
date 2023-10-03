@@ -114,10 +114,10 @@ function setupGit(){
 
 function gitPull(){
     updating = true;
-    if(fs.existsSync(path.join(__dirname + "\\AUTO-RESET-GIT"))){
-        runCommand(`git config --global user.name "${Math.floor(Math.random() * 1000)}"`);
-        runCommand(`git config --global user.email "${Math.floor(Math.random() * 1000)}@gmail.com"`);
-    }
+    // if(fs.existsSync(path.join(__dirname + "\\AUTO-RESET-GIT"))){
+    //     runCommand(`git config --global user.name "${Math.floor(Math.random() * 1000)}"`);
+    //     runCommand(`git config --global user.email "${Math.floor(Math.random() * 1000)}@gmail.com"`);
+    // }
     runCommand('git init');
     let repoUrl = "https://github.com/Tintarul/LeagueOfDreams-Electron-EJS.git";
     runCommand(`git remote add origin ${repoUrl}`);
